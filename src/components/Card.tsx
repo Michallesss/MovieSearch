@@ -1,4 +1,4 @@
-type CardProps = { id: string, title: string, imageUrl: string, year: string, description: string };
+type CardProps = { id?: string, title: string, imageUrl?: string, year?: string, description?: string };
 
 export default function Card({ id, title, imageUrl, year, description }: CardProps) {
   return (
