@@ -1,13 +1,12 @@
-import axios from "axios";
+import { instance } from "../constants/instance";
 import Search from "@/components/Search";
 import Card from "@/components/Card";
 
 type searchProps = { searchParams: { data: string | undefined }} // [key: string]: string | undefined
 
 export default async function SearchPage({ searchParams }: searchProps) {
-  const [data, error] = await axios.get(`http://www.omdbapi.com`, {
+  const [data, error] = await instance.get(`http://www.omdbapi.com`, {
     params: {
-      apikey: process.env.NEXT_PUBLIC_API_KEY,
       t: searchParams.data
     }
   })

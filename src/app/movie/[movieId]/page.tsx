@@ -1,11 +1,10 @@
-import axios from "axios";
+import { instance } from "@/app/constants/instance";
 
 type searchProps = { params: { movieId: number }};
 
 export default async function Search({ params }: searchProps) {
-  const [data, error] = await axios.get(`http://www.omdbapi.com`, {
+  const [data, error] = await instance.get(`http://www.omdbapi.com`, {
     params: {
-      apikey: process.env.NEXT_PUBLIC_API_KEY,
       i: params.movieId
     }
   })
